@@ -1,0 +1,13 @@
+.header {
+    background-color: #AF6E51;
+    margin: 64px auto;
+    padding: 16px 0;
+    max-width: 50%;
+}
+
+.header__title {
+    margin: 0;
+    text-align: center;
+    font-family: var(--primary-font);
+    font-size: var(--primary-title-size);
+}
