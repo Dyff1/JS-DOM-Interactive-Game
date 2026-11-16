@@ -1,7 +1,10 @@
 .header {
-
+    background-color: #AF6E51;
+    margin: 0;
+    padding: 16px 0;
 }
 
 .header__title {
-
+    margin: 0;
+    text-align: center;
 }
