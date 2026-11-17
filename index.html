@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="./style/header.css">
     <link rel="stylesheet" href="./style/audio.css">
     <link href="https://fonts.googleapis.com/css2?family=Jim+Nightshade&display=swap" rel="stylesheet">
-    <script src="script/logic.js"></script>
+    <script src="script/logic.js" defer></script>
 </head>
 <body>
     <header class="header">
@@ -17,20 +17,20 @@
     <main class="main">
         <div class="content">
             <div class="audios">
-                <audio controls>
-                    <source class="E-note player" src="./audio/E-note.mp3" type="audio/mp3">
+                <audio controls class="E-note player">
+                    <source src="./audio/E-note.mp3" type="audio/mp3">
                 </audio>
-                <audio controls>                    
-                    <source class="A-note player" src="./audio/A-note.mp3" type="audio/mp3">
+                <audio controls class="A-note player">                    
+                    <source src="./audio/A-note.mp3" type="audio/mp3">
                 </audio>
-                <audio controls>                
-                    <source class="D-note player" src="./audio/D-note.mp3" type="audio/mp3">
+                <audio controls class="D-note player">                
+                    <source src="./audio/D-note.mp3" type="audio/mp3">
                 </audio>
-                <audio controls>
-                    <source class="G-note player" src="./audio/G-note.mp3" type="audio/mp3">
+                <audio controls class="G-note player">
+                    <source src="./audio/G-note.mp3" type="audio/mp3">
                 </audio>
-                <audio controls>                    
-                    <source class="B-note player" src="./audio/B-note.mp3" type="audio/mp3">
+                <audio controls class="B-note player">                    
+                    <source src="./audio/B-note.mp3" type="audio/mp3">
                 </audio> 
             </div>
         </div>
