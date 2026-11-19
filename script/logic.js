@@ -4,7 +4,7 @@ let randomNumber = Math.floor(Math.random() * notesArray.length)
 let randomNote = notesArray[randomNumber]
 let guesses;
 let userGuess = ""
-
+console.log(randomNote)
 
 const HIDDENNOTE = (hidden) => {
     hidden = document.querySelector(`.${randomNote}`)
@@ -20,6 +20,11 @@ const HIDDENSTARTINPUT = (hidden) => {
 
 const HIDDENGAMEINPUT = (hidden) => {
     hidden = document.querySelector(".game")
+    hidden.classList.remove("hidden");
+}
+
+const HIDDENBUTTONNEXT = (hidden) => {
+    hidden = document.querySelector("#play-again")
     hidden.classList.remove("hidden");
 }
 
@@ -44,17 +49,31 @@ const STARTGAME = () => {
 
 const GUESS = () => {
     document.querySelector("#user-guess").addEventListener("keyup", (event) => {
+        if(event.key !== "Enter") return;
+        console.log(event.target.value)
         if(event.target.value.toLowerCase() === randomNote.toLowerCase()) {
             console.log("your guess is right")
+            let inputText = document.querySelector("#input-target-guess-text")
+            inputText.textContent = "Your guess is right! Would you like to play again?"
+            HIDDENBUTTONNEXT()
+            let playAgain = document.querySelector("#play-again").addEventListener("click", () => {
+                STARTGAME()
+            })
+
+
+        } else {
+            console.log("your guess is wrong")
+            let inputText = document.querySelector("#input-target-guess-text")
+            inputText.textContent = "Your guess is wrong. Guess again!"
         }
     })
 }
 
+const gamePlay = () => {
+    GUESS()
+}
+
 STARTGAME()
-//while game is on hide startgame
-
-
-
 //while loop not necessery, maybe. Well see eventlistener is loop already so technically not needed
 /* 
 const gamePlay = () => {
