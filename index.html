@@ -6,8 +6,9 @@
     <title>Guitar note game</title>
     <link rel="stylesheet" href="./style/style.css">
     <link rel="stylesheet" href="./style/header.css">
+    <link rel="stylesheet" href="./style/audio.css">
     <link href="https://fonts.googleapis.com/css2?family=Jim+Nightshade&display=swap" rel="stylesheet">
-    <script src="script/logic.js"></script>
+    <script src="script/logic.js" defer></script>
 </head>
 <body>
     <header class="header">
@@ -15,7 +16,23 @@
     </header>
     <main class="main">
         <div class="content">
-
+            <div class="audios">
+                <audio controls class="E-note player hidden">
+                    <source src="./audio/E-note.mp3" type="audio/mp3">
+                </audio>
+                <audio controls class="A-note player hidden">                    
+                    <source src="./audio/A-note.mp3" type="audio/mp3">
+                </audio>
+                <audio controls class="D-note player hidden">                
+                    <source src="./audio/D-note.mp3" type="audio/mp3">
+                </audio>
+                <audio controls class="G-note player hidden">
+                    <source src="./audio/G-note.mp3" type="audio/mp3">
+                </audio>
+                <audio controls class="B-note player hidden">                    
+                    <source src="./audio/B-note.mp3" type="audio/mp3">
+                </audio> 
+            </div>
         </div>
     </main>
 </body>
