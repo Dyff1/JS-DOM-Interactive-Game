@@ -9,18 +9,25 @@ const HIDDENNOTE = () => {
 }
 
 const STARTGAME = () => {
-    let listener = document.querySelector("#input-start-game").addEventListener("keyup", (event) => {
-    if(event.key === "Enter") {
-        let savedWord = event.target.value;
-        savedWord.toLowerCase()
+    document.querySelector("#input-start-game").addEventListener("keyup", (event) => {
+        if(event.key !== "Enter") return;
+        let savedWord = event.target.value.toLowerCase();
         if (savedWord === "yes") {
             isGameOn = true
             console.log(isGameOn)
+            gamePlay()
         } else {
             console.log("Why are you here then?")
         }
     }
-
-})
+    )
 }
 
+const gamePlay = () => {
+    while(isGameOn) {
+        console.log(isGameOn)
+        break;
+    }
+}
+
+STARTGAME()
