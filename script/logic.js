@@ -1,5 +1,15 @@
-const hidden = document.querySelector(".E-note")
-hidden.classList.add("hidden");
+const notesArray = ["E-note", "A-note", "D-note", "G-note", "B-note"]
+let randomNumber = Math.floor(Math.random() * notesArray.length)
+let randomNote = notesArray[randomNumber]
 
-const text = document.querySelector(".header__title")
-text.classList.add("testcolor")
+
+let hidden = document.querySelector(`.${randomNote}`)
+hidden.classList.remove("hidden");
+
+/*
+1. Array with notes
+2. Random floor, lenght of an array. Return a string
+3. Remove class hidden. Show on page
+
+
+*/
