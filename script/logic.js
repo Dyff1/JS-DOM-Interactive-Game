@@ -9,8 +9,10 @@ const HIDDENNOTE = (hidden) => {
 }
 
 const HIDDENINPUT = (hidden) => {
-    hidden = document.querySelector(".input__area")
-    hidden.classList.add("hidden")
+    hidden = document.querySelectorAll(".input__area, .input")
+    for (let i = 0; i < hidden.length; i++) {
+        hidden[i].classList.add("hidden")
+    }
 }
 
 const STARTGAME = () => {
