@@ -3,8 +3,10 @@
 :root {
     --primary-font: "Jim Nightshade", cursive, -apple-system;
 
-    --primary-title-size: 3rem
-    --primary-text-size: 1.5rem
+    --primary-title-size: 3rem;
+    --primary-text-size: 1.5rem;
+
+    --global-border: 10px;
 }
 
 * {
@@ -16,10 +18,27 @@ body {
     background-color: #3D0C02;
 }
 
-.main {
+.center {
+    display: flex;
+    align-items: center;
+    margin: auto;
+}
 
+.main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .content {
 
+}
+
+.bread__text {
+    text-align: center;
+    font-size: var(--primary-text-size);
+}
+
+.input__area {
+    margin: auto;
 }
