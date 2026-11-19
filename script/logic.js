@@ -43,14 +43,23 @@ const STARTGAME = () => {
 }
 
 const GUESS = () => {
-    
+    document.querySelector("#user-guess").addEventListener("keyup", (event) => {
+        if(event.target.value.toLowerCase() === randomNote.toLowerCase()) {
+            console.log("your guess is right")
+        }
+    })
 }
 
 STARTGAME()
 //while game is on hide startgame
+
+
+
+//while loop not necessery, maybe. Well see eventlistener is loop already so technically not needed
+/* 
 const gamePlay = () => {
     while(isGameOn) {
-        break;
+        GUESS()
     }
 }
-
+ */
