@@ -97,11 +97,3 @@ const gamePlay = () => {
 }
 
 STARTGAME()
-//while loop not necessery, maybe. Well see eventlistener is loop already so technically not needed
-/* 
-const gamePlay = () => {
-    while(isGameOn) {
-        GUESS()
-    }
-}
- */
