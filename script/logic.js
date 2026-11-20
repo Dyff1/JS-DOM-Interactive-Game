@@ -1,14 +1,23 @@
 let isGameOn = false
 const notesArray = ["E-note", "A-note", "D-note", "G-note", "B-note"]
-let randomNumber = Math.floor(Math.random() * notesArray.length)
-let randomNote = notesArray[randomNumber]
+let randomNumber;
+let randomNote = ""; 
 let guesses;
 let userGuess = ""
-console.log(randomNote)
+const RANDOMNUMBERSELECTOR = () => {
+    randomNumber = Math.floor(Math.random() * notesArray.length)
+    randomNote = notesArray[randomNumber]
+    console.log(`debug. random note is ${randomNote}`)
+}
+
+const VISIBLENOTE = (hidden) => {
+    hidden = document.querySelector(`.${randomNote}`)
+    hidden.classList.remove("hidden");
+}
 
 const HIDDENNOTE = (hidden) => {
     hidden = document.querySelector(`.${randomNote}`)
-    hidden.classList.remove("hidden");
+    hidden.classList.add("hidden");
 }
 
 const HIDDENSTARTINPUT = (hidden) => {
@@ -23,9 +32,24 @@ const HIDDENGAMEINPUT = (hidden) => {
     hidden.classList.remove("hidden");
 }
 
-const HIDDENBUTTONNEXT = (hidden) => {
+const VISIBLENEXTBUTTON = (hidden) => {
     hidden = document.querySelector("#play-again")
     hidden.classList.remove("hidden");
+}
+
+const HIDDENNEXTBUTTON = (hidden) => {
+    hidden = document.querySelector("#play-again")
+    hidden.classList.add("hidden");
+}
+
+const PLAY = () => {
+        isGameOn = true
+        HIDDENNEXTBUTTON()
+        RANDOMNUMBERSELECTOR()
+        HIDDENSTARTINPUT()
+        HIDDENGAMEINPUT()
+        VISIBLENOTE()
+        gamePlay()
 }
 
 const STARTGAME = () => {
@@ -33,11 +57,7 @@ const STARTGAME = () => {
         if(event.key !== "Enter") return;
         let savedWord = event.target.value.toLowerCase();
         if (savedWord === "yes") {
-            isGameOn = true
-            HIDDENSTARTINPUT()
-            HIDDENGAMEINPUT()
-            HIDDENNOTE()
-            gamePlay()
+            PLAY()
         } else {
             let inputText = document.querySelector("#input-target-text")
             inputText.textContent = "Why are you here then? Go play the game!"
@@ -55,9 +75,12 @@ const GUESS = () => {
             console.log("your guess is right")
             let inputText = document.querySelector("#input-target-guess-text")
             inputText.textContent = "Your guess is right! Would you like to play again?"
-            HIDDENBUTTONNEXT()
-            let playAgain = document.querySelector("#play-again").addEventListener("click", () => {
-                STARTGAME()
+            VISIBLENEXTBUTTON()
+            document.querySelector("#play-again").addEventListener("click", () => {
+                HIDDENNOTE()
+                randomNote = ""
+                console.log(`random note should be cleared. test if clear ${randomNote}`)
+                PLAY()
             })
 
 
