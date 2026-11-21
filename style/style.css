@@ -1,10 +1,13 @@
-@import url('https://fonts.googleapis.com/css2?family=Jim+Nightshade&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Jim+Nightshade&family=Jost:ital,wght@0,100..900;1,100..900&display=swap');
 
 :root {
-    --primary-font: "Jim Nightshade", cursive, -apple-system;
+    --title-font: "Jim Nightshade", cursive, -apple-system;
+    --primary-font: "Jost", sans-serif;
 
     --primary-title-size: 3rem;
     --primary-text-size: 1.5rem;
+    --small-text-size: 1rem;
+
 
     --global-border: 10px;
 }
@@ -15,13 +18,46 @@
 
 body {
     margin: 0;
-    background-color: #3D0C02;
+    padding: 0;
+    background: linear-gradient(45deg, #2e0000, #a9701a);
+    background-size: 400% 400%;
+    animation: background-gradient 10s ease infinite;
+}
+@keyframes background-gradient {
+  0% {
+    background-position: 0 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+@-webkit-keyframes background-gradient {
+  0% {
+    background-position: 0 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+
 }
 
 .center {
     display: flex;
     align-items: center;
     margin: auto;
+    text-align: center;
+}
+
+.user__input {
+    font-size: var(--small-text-size);
+    font-family: var(--primary-font);
+    max-width: 25%;
 }
 
 .main {
@@ -30,13 +66,14 @@ body {
     align-items: center;
 }
 
-.content {
-
+.main__header {
+    max-width: 90%;
 }
 
 .bread__text {
     text-align: center;
     font-size: var(--primary-text-size);
+    font-family: var(--primary-font);
 }
 
 .input__area {
@@ -47,4 +84,26 @@ body {
 
 .button {
     margin: auto;
+    border: 0;
+    line-height: 2.5;
+    padding: 0 20px;
+    font-size: var(--primary-text-size);
+    font-family: var(--primary-font);
+    text-align: center;
+    color: white;
+    text-shadow: 1px 1px 1px black;
+    border-radius: 10px;
+    background-color: #9c5e52;
+    background-image: linear-gradient(
+        to top left,
+        rgb(0 0 0 / 0.2),
+        rgb(0 0 0 / 0.2) 30%,
+        transparent
+    );
 }
+
+.button:hover {
+  background-color: #572217;
+}
+
+

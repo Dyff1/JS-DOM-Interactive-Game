@@ -16,10 +16,14 @@
     </header>
     <main class="main">
         <div class="main__header">
-            <p class="bread__text input">Welcome</p>
+            <p class="bread__text input">
+                Welcome to guitar note guessing game. Games idea is simple. 
+                Site selectes random note which then plays and your job is to guess what that note is.
+                Example answer would be: f-note. So type your answer in this way.
+            </p>
             <p class="bread__text input">Are you ready to start the game?</p>
             <div class="input__area">
-                <input class="center" id="input-start-game" type="text" placeholder="">
+                <input class="center user__input" id="input-start-game" type="text" placeholder="">
                 <p class="bread__text hidden" id="input-target-text"></p>
             </div>
         </div>
@@ -41,7 +45,7 @@
                     <source src="./audio/B-note.mp3" type="audio/mp3">
                 </audio>
                 <div class="input__area hidden game">
-                    <input class="center" id="user-guess" type="text" placeholder="">
+                    <input class="center user__input" id="user-guess" type="text" placeholder="">
                     <p class="bread__text" id="input-target-guess-text">Guess the right note that is being played!</p>
                     <button class="button hidden" id="play-again" type="button">Play again?</button>
                 </div> 

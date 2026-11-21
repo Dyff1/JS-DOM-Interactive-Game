@@ -8,12 +8,13 @@
 }
 
 .player {
-    margin: 0 20px;
+    margin: 0 auto;
+    max-width: 60%;
 }
 
 .visible {
     
-}
+}s
 
 .E-note {
     
