@@ -6,26 +6,27 @@ let toggleState = false
 let attempsRight;
 let attempsWrong;
 let userGuess = ""
-let attempsState;
+let attempState = 0;
 
 const HIDDENATTEMPS = (hidden) => {
-    hidden = document.querySelector("bread__text")
+    hidden = document.querySelector(".attemps__toggle__text")
     hidden.classList.add("hidden");
 }
 
 const VISIBLEATTEMPS = (hidden) => {
-    if (attempsState === 0) {
-        for (let i = 0 ; i <= 1 ; i++) {
+    if (attempState === 0) {
+        for (let i = 0 ; i < 1 ; i++) {
             const p = document.createElement('p')
             p.textContent = "testtesttest";
-            p.classList.add("bread__text")
+            p.classList.add("attemps__toggle__text")
+            p.classList.add("hidden")
             document.querySelector(".attemps").append(p)
-            attempsState = 1
+            attempState = 1
         }
-    }
 
-    hidden = document.querySelector(".bread__text")
+    hidden = document.querySelector(".attemps__toggle__text")
     hidden.classList.remove("hidden")
+    }
 }
 
 const RANDOMNUMBERSELECTOR = () => {
@@ -125,13 +126,16 @@ const gamePlay = () => {
 
 STARTGAME()
 
-const toggle = document.querySelector("#attemps").addEventListener("click", () => {
+const toggle = document.querySelector("#attemps");
+
+toggle.addEventListener("click", () => {
+    console.log(toggle)
     if (toggleState == false) {
         console.log(`debug, current attemps are:${attempsRight}`)
         VISIBLEATTEMPS()
     }
-    else {
-        HIDDENATTEMPS
+    else if (toggleState == true) {
+        HIDDENATTEMPS()
     }
     toggleState = true
 })
