@@ -9,11 +9,13 @@ let userGuess = ""
 let attempState = 0;
 
 const HIDDENATTEMPS = (hidden) => {
+    console.log("hidden attemp state")
     hidden = document.querySelector(".attemps__toggle__text")
     hidden.classList.add("hidden");
 }
 
 const VISIBLEATTEMPS = (hidden) => {
+    console.log("visible attemp state")
     if (attempState === 1) {
         hidden = document.querySelector(".attemps__toggle__text")
         hidden.classList.remove("hidden")
@@ -136,9 +138,10 @@ toggle.addEventListener("click", () => {
     if (toggleState == false) {
         console.log(`debug, current attemps are:${attempsRight}`)
         VISIBLEATTEMPS()
+        toggleState = true
     }
     else if (toggleState == true) {
         HIDDENATTEMPS()
+        toggleState = false
     }
-    toggleState = true
 })
