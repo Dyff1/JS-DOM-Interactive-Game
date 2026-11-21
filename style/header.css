@@ -1,9 +1,7 @@
 .header {
-    background-color: #AF6E51;
     margin: 64px auto;
     padding: 16px 0;
-    max-width: 15%;
-    border-radius: var(--global-border);
+    max-width: 35%;
 }
 
 .header__title {
@@ -11,4 +9,19 @@
     text-align: center;
     font-family: var(--primary-font);
     font-size: var(--primary-title-size);
+    animation-name:glow;
+    animation-duration:3s;
+    animation-iteration-count:infinite;
+    animation-direction:alternate;
+}
+
+@keyframes glow{
+  from{text-shadow: 0px 0px 2px #351010,0px 0px 2px #280404;}
+  to{text-shadow: 0px 0px 10px #4a3d3d,0px 0px 10px #6d3838;}
+}
+
+@media screen and (max-width: 768px) {
+    .header {
+        max-width: 80%;
+    }
 }

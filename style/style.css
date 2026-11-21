@@ -15,13 +15,40 @@
 
 body {
     margin: 0;
-    background-color: #3D0C02;
+    padding: 0;
+    background: linear-gradient(45deg, #2e0000, #a9701a);
+    background-size: 400% 400%;
+    animation: background-gradient 10s ease infinite;
+}
+@keyframes background-gradient {
+  0% {
+    background-position: 0 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+@-webkit-keyframes background-gradient {
+  0% {
+    background-position: 0 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+
 }
 
 .center {
     display: flex;
     align-items: center;
     margin: auto;
+    text-align: center;
 }
 
 .main {
