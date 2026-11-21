@@ -2,8 +2,32 @@ let isGameOn = false
 const notesArray = ["E-note", "A-note", "D-note", "G-note", "B-note"]
 let randomNumber;
 let randomNote = ""; 
-let guesses;
+let toggleState = false
+let attempsRight;
+let attempsWrong;
 let userGuess = ""
+let attempsState;
+
+const HIDDENATTEMPS = (hidden) => {
+    hidden = document.querySelector("bread__text")
+    hidden.classList.add("hidden");
+}
+
+const VISIBLEATTEMPS = (hidden) => {
+    if (attempsState === 0) {
+        for (let i = 0 ; i <= 1 ; i++) {
+            const p = document.createElement('p')
+            p.textContent = "testtesttest";
+            p.classList.add("bread__text")
+            document.querySelector(".attemps").append(p)
+            attempsState = 1
+        }
+    }
+
+    hidden = document.querySelector(".bread__text")
+    hidden.classList.remove("hidden")
+}
+
 const RANDOMNUMBERSELECTOR = () => {
     randomNumber = Math.floor(Math.random() * notesArray.length)
     randomNote = notesArray[randomNumber]
@@ -73,6 +97,7 @@ const GUESS = () => {
         console.log(event.target.value)
         if(event.target.value.toLowerCase() === randomNote.toLowerCase()) {
             console.log("your guess is right")
+            attempsRight++
             let inputText = document.querySelector("#input-target-guess-text")
             inputText.textContent = "Your guess is right! Would you like to play again?"
             VISIBLENEXTBUTTON()
@@ -80,12 +105,14 @@ const GUESS = () => {
                 HIDDENNOTE()
                 randomNote = ""
                 console.log(`random note should be cleared. test if clear ${randomNote}`)
+                inputText.textContent = "Guess the right note that is being played!"
                 PLAY()
             })
 
 
         } else {
             console.log("your guess is wrong")
+            attempsWrong++
             let inputText = document.querySelector("#input-target-guess-text")
             inputText.textContent = "Your guess is wrong. Guess again!"
         }
@@ -97,3 +124,14 @@ const gamePlay = () => {
 }
 
 STARTGAME()
+
+const toggle = document.querySelector("#attemps").addEventListener("click", () => {
+    if (toggleState == false) {
+        console.log(`debug, current attemps are:${attempsRight}`)
+        VISIBLEATTEMPS()
+    }
+    else {
+        HIDDENATTEMPS
+    }
+    toggleState = true
+})

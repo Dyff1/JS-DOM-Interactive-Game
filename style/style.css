@@ -106,4 +106,10 @@ body {
   background-color: #572217;
 }
 
-
+.attemps__toggle {
+    position: fixed;
+    font-size: var(--primary-text-size);
+    font-family: var(--primary-font);
+    bottom: 50px;
+    right: 50px;
+}
