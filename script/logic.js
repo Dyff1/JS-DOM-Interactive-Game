@@ -14,7 +14,11 @@ const HIDDENATTEMPS = (hidden) => {
 }
 
 const VISIBLEATTEMPS = (hidden) => {
-    if (attempState === 0) {
+    if (attempState === 1) {
+        hidden = document.querySelector(".attemps__toggle__text")
+        hidden.classList.remove("hidden")
+    }
+    else if (attempState === 0) {
         for (let i = 0 ; i < 1 ; i++) {
             const p = document.createElement('p')
             p.textContent = "testtesttest";
@@ -22,10 +26,9 @@ const VISIBLEATTEMPS = (hidden) => {
             p.classList.add("hidden")
             document.querySelector(".attemps").append(p)
             attempState = 1
+            hidden = document.querySelector(".attemps__toggle__text")
+            hidden.classList.remove("hidden")
         }
-
-    hidden = document.querySelector(".attemps__toggle__text")
-    hidden.classList.remove("hidden")
     }
 }
 
