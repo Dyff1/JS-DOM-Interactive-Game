@@ -73,6 +73,16 @@ const HIDDENNEXTBUTTON = (hidden) => {
     hidden.classList.add("hidden");
 }
 
+const VISIBLEUSERINPUT = (hidden) => {
+    hidden = document.querySelector("#user-guess")
+    hidden.classList.remove("hidden");
+}
+
+const HIDDENUSERINPUT = (hidden) => {
+    hidden = document.querySelector("#user-guess")
+    hidden.classList.add("hidden");
+}
+
 const PLAY = () => {
         isGameOn = true
         HIDDENNEXTBUTTON()
@@ -101,8 +111,8 @@ const STARTGAME = () => {
 const GUESS = () => {
     document.querySelector("#user-guess").addEventListener("keyup", (event) => {
         if(event.key !== "Enter") return;
-        console.log(event.target.value)
         if(event.target.value.toLowerCase() === randomNote.toLowerCase()) {
+            HIDDENUSERINPUT()
             console.log("your guess is right")
             attempsRight++
             attempsTotal++
@@ -111,6 +121,7 @@ const GUESS = () => {
             inputText.textContent = "Your guess is right! Would you like to play again?"
             VISIBLENEXTBUTTON()
             document.querySelector("#play-again").addEventListener("click", () => {
+                VISIBLEUSERINPUT()
                 HIDDENNOTE()
                 randomNote = ""
                 console.log(`random note should be cleared. test if clear ${randomNote}`)
