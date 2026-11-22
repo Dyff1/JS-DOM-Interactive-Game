@@ -52,6 +52,7 @@ body {
     align-items: center;
     margin: auto;
     text-align: center;
+    justify-content: center;
 }
 
 .user__input {
@@ -112,4 +113,9 @@ body {
     font-family: var(--primary-font);
     bottom: 50px;
     right: 50px;
+}
+
+.attemps__toggle__text {
+   font-size: var(--primary-text-size);
+   font-family: var(--primary-font);
 }
