@@ -15,6 +15,8 @@ const ATTEMPSAPPEND = () => {
         const p = document.createElement('p')
         p.classList.add("attemps__toggle__text", "center")
         document.querySelector(".attemps").append(p)
+        isAttempsCreated = true
+        toggleState = true
     }
     const attempsContent = document.querySelector(".attemps__toggle__text")
     attempsContent.textContent = "Your total attemps are: " + attempsTotal;
@@ -33,7 +35,7 @@ const VISIBLEATTEMPS = (hidden) => {
         hidden.classList.remove("hidden")
         ATTEMPSAPPEND()
     }
-    else if (attempState === 0 || isAttempsCreated === false) {
+    else if (attempState === 0 && isAttempsCreated === false) {
         for (let i = 0 ; i < 1 ; i++) {
             const p = document.createElement('p')
             p.textContent = "Your total attemps are: " + attempsTotal;
@@ -140,9 +142,10 @@ const GUESS = (event) => {
             attempsWrong++
             attempsTotal++
             ATTEMPSAPPEND()
-            console.log(attempsTotal)
+            console.log("debug: is attempt created: " + isAttempsCreated)
+            console.log("debug: attemps total: " + attempsTotal)
             let inputText = document.querySelector("#input-target-guess-text")
-            inputText.textContent = "Your guess is wrong. Guess again!"
+            inputText.textContent = `Your guess (${event.target.value}) is wrong. Guess again!`
         }
 }
 
@@ -170,6 +173,7 @@ toggle.addEventListener("click", () => {
         HIDDENATTEMPS()
         toggleState = false
     }
+    console.log("debug: is attempt created on button toggle: " + isAttempsCreated)
 })
 
 document.querySelector("#user-guess").addEventListener("keyup", GUESS)
