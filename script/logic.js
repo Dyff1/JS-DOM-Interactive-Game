@@ -102,7 +102,7 @@ const PLAY = () => {
         HIDDENSTARTINPUT()
         HIDDENGAMEINPUT()
         VISIBLENOTE()
-        gamePlay()
+        //gamePlay()
 }
 
 const STARTGAME = () => {
@@ -120,8 +120,7 @@ const STARTGAME = () => {
     )
 }
 
-const GUESS = () => {
-    document.querySelector("#user-guess").addEventListener("keyup", (event) => {
+const GUESS = (event) => {
         if(event.key !== "Enter") return;
         if(event.target.value.toLowerCase() === randomNote.toLowerCase()) {
             HIDDENUSERINPUT()
@@ -134,15 +133,9 @@ const GUESS = () => {
             inputText.textContent = "Your guess is right! Would you like to play again?"
             VISIBLENEXTBUTTON()
             document.querySelector("#play-again").addEventListener("click", () => {
-                VISIBLEUSERINPUT()
-                HIDDENNOTE()
-                randomNote = ""
-                console.log(`random note should be cleared. test if clear ${randomNote}`)
-                inputText.textContent = "Guess the right note that is being played!"
-                PLAY()
-            })
-
-        } else {
+                PLAYAGAIN()
+                })
+        } else if (event.target.value.toLowerCase() !== randomNote.toLowerCase()) {
             console.log("your guess is wrong")
             attempsWrong++
             attempsTotal++
@@ -151,11 +144,15 @@ const GUESS = () => {
             let inputText = document.querySelector("#input-target-guess-text")
             inputText.textContent = "Your guess is wrong. Guess again!"
         }
-    })
 }
 
-const gamePlay = () => {
-    GUESS()
+const PLAYAGAIN = () => {
+    VISIBLEUSERINPUT()
+    HIDDENNOTE()
+    randomNote = ""
+    console.log(`random note should be cleared. test if clear ${randomNote}`)
+    document.querySelector("#input-target-guess-text").textContent = "Guess the right note that is being played!"
+    PLAY()
 }
 
 STARTGAME()
@@ -174,3 +171,6 @@ toggle.addEventListener("click", () => {
         toggleState = false
     }
 })
+
+document.querySelector("#user-guess").addEventListener("keyup", GUESS)
+document.querySelector("#play-again").addEventListener("click", PLAYAGAIN)
