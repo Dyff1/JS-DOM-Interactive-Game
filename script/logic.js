@@ -13,10 +13,11 @@ let isAttempsCreated = false
 const ATTEMPSAPPEND = () => {
     if (isAttempsCreated === false) {
         const p = document.createElement('p')
-        p.classList.add("attemps__toggle__text", "center")
+        p.classList.add("attemps__toggle__text", "center", "hidden")
         document.querySelector(".attemps").append(p)
         isAttempsCreated = true
-        toggleState = true
+        toggleState = true  
+        attempState = 1
     }
     const attempsContent = document.querySelector(".attemps__toggle__text")
     attempsContent.textContent = "Your total attemps are: " + attempsTotal;
@@ -119,8 +120,7 @@ const STARTGAME = () => {
             inputText.classList.remove("hidden")
         }
     }
-    )
-}
+)}
 
 const GUESS = (event) => {
         if(event.key !== "Enter") return;
@@ -163,6 +163,9 @@ STARTGAME()
 const toggle = document.querySelector("#attemps");
 
 toggle.addEventListener("click", () => {
+    if (isAttempsCreated == false) {
+        ATTEMPSAPPEND()
+    }
     console.log(toggle)
     if (toggleState == false) {
         console.log(`debug, current attemps are:${attempsTotal}`)
