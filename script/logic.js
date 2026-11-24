@@ -31,7 +31,6 @@ const HIDDENATTEMPS = (hidden) => {
 const VISIBLEATTEMPS = (hidden) => {
     console.log(attempsTotal)
     if (attempState === 1) {
-        console.log("should print this?")
         hidden = document.querySelector(".attemps__toggle__text")
         hidden.classList.remove("hidden")
         ATTEMPSAPPEND()
@@ -105,7 +104,6 @@ const PLAY = () => {
         HIDDENSTARTINPUT()
         VISIBLEGAMEINPUT()
         VISIBLENOTE()
-        //gamePlay()
 }
 
 const STARTGAME = () => {
@@ -126,14 +124,11 @@ const GUESS = (event) => {
         if(event.key !== "Enter") return;
         if(event.target.value.toLowerCase() === randomNote.toLowerCase()) {
             HIDDENUSERINPUT()
-            console.log("your guess is right")
             attempsRight++
             attempsTotal++
             if (isAttempsCreated === true) {
                 ATTEMPSAPPEND()
             }
-            //ATTEMPSAPPEND()
-            console.log(attempsTotal)
             let inputText = document.querySelector("#input-target-guess-text")
             inputText.textContent = "Your guess is right! Would you like to play again?"
             VISIBLENEXTBUTTON()
@@ -141,14 +136,11 @@ const GUESS = (event) => {
                 PLAYAGAIN()
                 })
         } else if (event.target.value.toLowerCase() !== randomNote.toLowerCase()) {
-            console.log("your guess is wrong")
             attempsWrong++
             attempsTotal++
             if (isAttempsCreated === true) {
                 ATTEMPSAPPEND()
             }
-            console.log("debug: is attempt created: " + isAttempsCreated)
-            console.log("debug: attemps total: " + attempsTotal)
             let inputText = document.querySelector("#input-target-guess-text")
             inputText.textContent = `Your guess (${event.target.value}) is wrong. Guess again!`
         }
