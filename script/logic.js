@@ -23,12 +23,12 @@ const ATTEMPSAPPEND = () => {
     document.querySelector(".attemps").append(attempsContent)
 }
 
-const HIDDENATTEMPS = (hidden) => {
+const HIDDENATTEMPS = () => {
     hidden = document.querySelector(".attemps__toggle__text")
     hidden.classList.add("hidden");
 }
 
-const VISIBLEATTEMPS = (hidden) => {
+const VISIBLEATTEMPS = () => {
     console.log(attempsTotal)
     if (attempState === 1) {
         hidden = document.querySelector(".attemps__toggle__text")
@@ -55,44 +55,44 @@ const RANDOMNUMBERSELECTOR = () => {
     console.log(`debug. random note is ${randomNote}`)
 }
 
-const VISIBLENOTE = (hidden) => {
+const VISIBLENOTE = () => {
     hidden = document.querySelector(`.${randomNote}`)
     hidden.classList.remove("hidden");
 }
 
-const HIDDENNOTE = (hidden) => {
+const HIDDENNOTE = () => {
     hidden = document.querySelector(`.${randomNote}`)
     hidden.classList.add("hidden");
 }
 
-const HIDDENSTARTINPUT = (hidden) => {
+const HIDDENSTARTINPUT = () => {
     hidden = document.querySelectorAll(".input__area, .input")
     for (let i = 0; i < hidden.length; i++) {
         hidden[i].classList.add("hidden")
     }
 }
 
-const VISIBLEGAMEINPUT = (hidden) => {
+const VISIBLEGAMEINPUT = () => {
     hidden = document.querySelector(".game")
     hidden.classList.remove("hidden");
 }
 
-const VISIBLENEXTBUTTON = (hidden) => {
+const VISIBLENEXTBUTTON = () => {
     hidden = document.querySelector("#play-again")
     hidden.classList.remove("hidden");
 }
 
-const HIDDENNEXTBUTTON = (hidden) => {
+const HIDDENNEXTBUTTON = () => {
     hidden = document.querySelector("#play-again")
     hidden.classList.add("hidden");
 }
 
-const VISIBLEUSERINPUT = (hidden) => {
+const VISIBLEUSERINPUT = () => {
     hidden = document.querySelector("#user-guess")
     hidden.classList.remove("hidden");
 }
 
-const HIDDENUSERINPUT = (hidden) => {
+const HIDDENUSERINPUT = () => {
     hidden = document.querySelector("#user-guess")
     hidden.classList.add("hidden");
 }
